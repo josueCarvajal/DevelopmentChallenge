@@ -100,41 +100,40 @@ public class List {
 
 	}
 
+	private void dropList() {
+		start = null;
+		end = null;
+	}
+
 	public void sortElementsBubbleSort() {
 
-		if (!isEmpty()) {
-			if (getListSize() <= 1) {
-				JOptionPane.showMessageDialog(null, "Not enough elements to sort");
-			} else {
-				Node[] actualNodeArray = convertToArray(getListSize());
-				Node aux;
-				boolean cambio = false;
-				cambio = false;
-				for (int i = 1; i < actualNodeArray.length; i++) {
-					if (!(i == actualNodeArray.length)) {
-						if (actualNodeArray[i].getData() < actualNodeArray[i - 1].getData()) {
-							aux = actualNodeArray[i];
-							actualNodeArray[i] = actualNodeArray[i - 1];
-							actualNodeArray[i - 1] = aux;
-						}
-					}
+		Node[] actualNodeArray = convertToArray(getListSize());
+		Node aux;
+		boolean cambio = false;
+		while (true) {
+			cambio = false;
+			for (int i = 1; i < actualNodeArray.length; i++) {
+				if (actualNodeArray[i].getData() < actualNodeArray[i - 1].getData()) {
+					aux = actualNodeArray[i];
+					actualNodeArray[i] = actualNodeArray[i - 1];
+					actualNodeArray[i - 1] = aux;
+					cambio = true;
 				}
-				start = null;
-				end = null;
-				for (int i = 0; i < actualNodeArray.length; i++) {
-					addData(actualNodeArray[i].getData());
-				}
-				JOptionPane.showMessageDialog(null, "Sorted.");
 			}
-		} else {
-			JOptionPane.showMessageDialog(null, "There are no items in the list ");
+			if (cambio == false)
+				break;
 		}
-
+		dropList();
+		for (int i = 0; i < actualNodeArray.length; i++) {
+			addData(actualNodeArray[i].getData());
+			System.out.println(actualNodeArray[i].getData());
+		}
 	}
 
 	private Node[] convertToArray(int listSize) {// convert list to array to sort it
 		Node[] array = new Node[listSize];
 		Node actual = start;
+		j = 0;
 		if (isEmpty()) {
 			JOptionPane.showMessageDialog(null, "No hay elementos");
 			return null;
