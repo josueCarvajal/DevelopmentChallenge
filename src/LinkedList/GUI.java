@@ -143,7 +143,7 @@ public class GUI {
 				String index = txtFindValue.getText();
 				if (linkedList.validateInputs(index)) {
 					linkedList.findValueAtIndexValue(Integer.parseInt(index));
-					txtNewElement.setText("");
+					txtFindValue.setText("");
 				} else {
 					JOptionPane.showMessageDialog(null, "The field does not allow blank data or non integer values");
 				}
@@ -155,12 +155,12 @@ public class GUI {
 			public void actionPerformed(ActionEvent e) {
 				String valueToDelete = txtDeleteElement.getText();
 				linkedList.deleteAnElement(Integer.parseInt(valueToDelete));
+				txtDeleteElement.setText("");
 			}
 		});
 
 		btnSortElements.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				linkedList.sortElementsBubbleSort();
 				
 			}

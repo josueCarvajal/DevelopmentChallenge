@@ -106,28 +106,32 @@ public class List {
 	}
 
 	public void sortElementsBubbleSort() {
-
-		Node[] actualNodeArray = convertToArray(getListSize());
-		Node aux;
-		boolean cambio = false;
-		while (true) {
-			cambio = false;
-			for (int i = 1; i < actualNodeArray.length; i++) {
-				if (actualNodeArray[i].getData() < actualNodeArray[i - 1].getData()) {
-					aux = actualNodeArray[i];
-					actualNodeArray[i] = actualNodeArray[i - 1];
-					actualNodeArray[i - 1] = aux;
-					cambio = true;
+		if(!isEmpty() && !(getListSize()<=1)) {
+			Node[] actualNodeArray = convertToArray(getListSize());
+			Node aux;
+			boolean cambio = false;
+			while (true) {
+				cambio = false;
+				for (int i = 1; i < actualNodeArray.length; i++) {
+					if (actualNodeArray[i].getData() < actualNodeArray[i - 1].getData()) {
+						aux = actualNodeArray[i];
+						actualNodeArray[i] = actualNodeArray[i - 1];
+						actualNodeArray[i - 1] = aux;
+						cambio = true;
+					}
 				}
+				if (cambio == false)
+					break;
 			}
-			if (cambio == false)
-				break;
+			dropList();
+			for (int i = 0; i < actualNodeArray.length; i++) {
+				addData(actualNodeArray[i].getData());
+				System.out.println(actualNodeArray[i].getData());
+			}
+		}else {
+			JOptionPane.showMessageDialog(null, "There are no items or only one exists");
 		}
-		dropList();
-		for (int i = 0; i < actualNodeArray.length; i++) {
-			addData(actualNodeArray[i].getData());
-			System.out.println(actualNodeArray[i].getData());
-		}
+
 	}
 
 	private Node[] convertToArray(int listSize) {// convert list to array to sort it
@@ -135,7 +139,7 @@ public class List {
 		Node actual = start;
 		j = 0;
 		if (isEmpty()) {
-			JOptionPane.showMessageDialog(null, "No hay elementos");
+			JOptionPane.showMessageDialog(null, "There are no items");
 			return null;
 		} else {
 			while (actual != null) {
