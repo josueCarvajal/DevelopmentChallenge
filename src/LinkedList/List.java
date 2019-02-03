@@ -111,18 +111,18 @@ public class List {
 		if(!isEmpty() && !(getListSize()<=1)) {
 			Node[] actualNodeArray = convertToArray(getListSize());
 			Node aux;
-			boolean cambio = false;
+			boolean hasChange = false;
 			while (true) {
-				cambio = false;
+				hasChange = false;
 				for (int i = 1; i < actualNodeArray.length; i++) {
 					if (actualNodeArray[i].getData() < actualNodeArray[i - 1].getData()) {
 						aux = actualNodeArray[i];
 						actualNodeArray[i] = actualNodeArray[i - 1];
 						actualNodeArray[i - 1] = aux;
-						cambio = true;
+						hasChange = true;
 					}
 				}
-				if (cambio == false)
+				if (hasChange == false)
 					break;
 			}
 			dropList();
@@ -212,6 +212,7 @@ public class List {
 				}
 				// at the end
 				if (local != start && local.getNext() == null) {
+					end = previous;
 					previous.setNext(null);
 					JOptionPane.showMessageDialog(null, "Element deleted");
 					return;
