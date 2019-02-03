@@ -167,8 +167,14 @@ public class GUI {
 		btnDeleteAnElement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String valueToDelete = txtDeleteElement.getText();
-				linkedList.deleteAnElement(Integer.parseInt(valueToDelete));
-				txtDeleteElement.setText("");
+				if (linkedList.validateInputs(valueToDelete)) {
+					linkedList.deleteAnElement(Integer.parseInt(valueToDelete));
+					txtDeleteElement.setText("");
+				} else {
+					JOptionPane.showMessageDialog(null, "The field does not allow blank data or non integer values");
+				}
+
+			
 			}
 		});
 

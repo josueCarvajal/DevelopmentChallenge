@@ -175,6 +175,7 @@ public class List {
 
 		if (isEmpty()) {
 			JOptionPane.showMessageDialog(null, "There are no items in the list");
+			return;
 		} else {
 			findElementToDelete(valueToDelete);
 		}
