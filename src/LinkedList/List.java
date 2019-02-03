@@ -77,10 +77,12 @@ public class List {
 		while (temp != null) {
 			if (counter == index) {
 				JOptionPane.showMessageDialog(null, "The value at index:  " + counter + "  is:  " + temp.getData());
+				return;
 			}
 			temp = temp.getNext();
 			counter++;
 		}
+		JOptionPane.showMessageDialog(null, "Index does not exists");
 	}
 
 	/*
@@ -126,8 +128,8 @@ public class List {
 			dropList();
 			for (int i = 0; i < actualNodeArray.length; i++) {
 				addData(actualNodeArray[i].getData());
-				System.out.println(actualNodeArray[i].getData());
 			}
+			JOptionPane.showMessageDialog(null, "Sorted");
 		}else {
 			JOptionPane.showMessageDialog(null, "There are no items or only one exists");
 		}

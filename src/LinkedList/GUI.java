@@ -8,6 +8,9 @@ import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import Supermarket.Invoice;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -27,7 +30,7 @@ public class GUI {
 	private JButton btnDeleteAnElement;
 	private JButton btnSortElements;
 	private JLabel lblExcercise;
-
+	JButton btnGenerateInvoice;
 	/**
 	 * Launch the application.
 	 */
@@ -58,7 +61,7 @@ public class GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 345, 483);
+		frame.setBounds(100, 100, 345, 280);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -123,6 +126,10 @@ public class GUI {
 		lblExcercise.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblExcercise.setBounds(107, 177, 111, 14);
 		frame.getContentPane().add(lblExcercise);
+		
+		btnGenerateInvoice = new JButton("Generate Invoice");
+		btnGenerateInvoice.setBounds(10, 202, 309, 23);
+		frame.getContentPane().add(btnGenerateInvoice);
 	}
 
 	private void buttonActions() {
@@ -171,5 +178,14 @@ public class GUI {
 				
 			}
 		});
+	
+
+		btnGenerateInvoice.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Supermarket.Invoice invoice = new Invoice();
+				invoice.run();
+			}
+		});
+	
 	}
 }
