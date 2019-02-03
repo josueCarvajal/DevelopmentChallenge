@@ -26,6 +26,7 @@ public class GUI {
 	private JTextField txtDeleteElement;
 	private JButton btnDeleteAnElement;
 	private JButton btnSortElements;
+	private JLabel lblExcercise;
 
 	/**
 	 * Launch the application.
@@ -57,13 +58,13 @@ public class GUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 349, 277);
+		frame.setBounds(100, 100, 345, 483);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblLinkedList = new JLabel("LINKED LIST");
+		JLabel lblLinkedList = new JLabel("LINKED LIST #1");
 		lblLinkedList.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblLinkedList.setBounds(101, 11, 90, 14);
+		lblLinkedList.setBounds(107, 11, 121, 14);
 		frame.getContentPane().add(lblLinkedList);
 
 		JLabel lblAddNew = new JLabel("Data:");
@@ -83,7 +84,7 @@ public class GUI {
 
 		btnListElements = new JButton("List elements");
 
-		btnListElements.setBounds(206, 123, 121, 23);
+		btnListElements.setBounds(164, 123, 163, 23);
 		frame.getContentPane().add(btnListElements);
 
 		lblFindI = new JLabel("Find i:");
@@ -115,8 +116,13 @@ public class GUI {
 		frame.getContentPane().add(btnDeleteAnElement);
 
 		btnSortElements = new JButton("Sort Elements");
-		btnSortElements.setBounds(206, 152, 121, 23);
+		btnSortElements.setBounds(10, 123, 144, 23);
 		frame.getContentPane().add(btnSortElements);
+		
+		lblExcercise = new JLabel("EXCERCISE #2");
+		lblExcercise.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblExcercise.setBounds(107, 177, 111, 14);
+		frame.getContentPane().add(lblExcercise);
 	}
 
 	private void buttonActions() {
